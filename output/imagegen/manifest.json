@@ -1,0 +1,103 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "name": "hero",
+      "url": "/images/sienna/hero.webp",
+      "original": "output/imagegen/originals/hero.png",
+      "prompt": "Generate a standalone website photographic asset, NOT a website mockup. Reference image is mood/composition reference only. Wide landscape ecommerce hero photograph, 3:2 aspect ratio. Beautiful adult Filipina model with flowing dark brown hair on upper right, ivory silk garment, looking gently toward camera. Foreground bottom right ivory cosmetic jar with copper lid, frosted serum bottle copper cap, rice soap on pale travertine, blush silk and hibiscus. Leftmost third light warm ivory negative space, keep subject and products in right two thirds; text will be overlaid by the website. Similar composition to provided website hero but NO website interface or text. Premium Sienna Filipina skincare and apparel aesthetic: warm ivory, muted copper rose gold, blush pink, natural sunlight and delicate shadows, realistic materials and skin texture, high-end editorial photography. No overlaid text, no buttons, no watermark, no fabricated legible brand lettering. High resolution.",
+      "referenceImage": "User-provided Sienna Filipina screenshot"
+    },
+    {
+      "name": "skincare-collection",
+      "url": "/images/sienna/skincare-collection.webp",
+      "original": "output/imagegen/originals/skincare-collection.png",
+      "prompt": "Generate a standalone website photographic asset, NOT a website mockup. Reference image is mood/composition reference only. Landscape 3:2 skincare collection photograph. Right half has frosted ivory serum bottle copper cap and cream jar copper lid on pale travertine, ivory rice soap and pale pink hibiscus flower. Blush silk, softly blurred flowers. Left third uncluttered pale ivory negative space for website text. Premium Sienna Filipina skincare and apparel aesthetic: warm ivory, muted copper rose gold, blush pink, natural sunlight and delicate shadows, realistic materials and skin texture, high-end editorial photography. No overlaid text, no buttons, no watermark, no fabricated legible brand lettering. High resolution.",
+      "referenceImage": "User-provided Sienna Filipina screenshot"
+    },
+    {
+      "name": "apparel-collection",
+      "url": "/images/sienna/apparel-collection.webp",
+      "original": "output/imagegen/originals/apparel-collection.png",
+      "prompt": "Generate a standalone website photographic asset, NOT a website mockup. Reference image is mood/composition reference only. Landscape 3:2 editorial apparel collection photograph. Adult Filipina woman on right wearing relaxed ivory linen button shirt and matching trousers, woven tote, softly lit warm ivory Mediterranean interior with soft green plant in background. Left third pale uncluttered space for text. Same luxurious neutral aesthetic as supplied reference. Premium Sienna Filipina skincare and apparel aesthetic: warm ivory, muted copper rose gold, blush pink, natural sunlight and delicate shadows, realistic materials and skin texture, high-end editorial photography. No overlaid text, no buttons, no watermark, no fabricated legible brand lettering. High resolution.",
+      "referenceImage": "User-provided Sienna Filipina screenshot"
+    },
+    {
+      "name": "rice-soap",
+      "url": "/images/sienna/rice-soap.webp",
+      "original": "output/imagegen/originals/rice-soap.png",
+      "prompt": "Generate a standalone photographic website asset. Square product photograph, two thick ivory rice soap bars with subtle golden rice flecks stacked on pale travertine, scattered rice grains, blush silk backdrop, small pale pink flower at edge. Close detail, hero product clearly centered. Consistent Sienna Filipina aesthetic: muted rose gold/copper, blush and warm ivory, elegant realistic natural window light, soft shadows, luxurious beauty editorial photography. No website interface, no text overlay, no labels or lettering, no watermark. High resolution.",
+      "referenceImage": null
+    },
+    {
+      "name": "rice-soap-detail",
+      "url": "/images/sienna/rice-soap-detail.webp",
+      "original": "output/imagegen/originals/rice-soap-detail.png",
+      "prompt": "Generate a standalone photographic website asset. Square close-up product photograph, single ivory rice soap bar with tiny golden rice grains, a second softly blurred bar behind, scattered dry rice and warm beige linen, blush background. Different close-up angle from soap stack. Consistent Sienna Filipina aesthetic: muted rose gold/copper, blush and warm ivory, elegant realistic natural window light, soft shadows, luxurious beauty editorial photography. No website interface, no text overlay, no labels or lettering, no watermark. High resolution.",
+      "referenceImage": null
+    },
+    {
+      "name": "daily-set",
+      "url": "/images/sienna/daily-set.webp",
+      "original": "output/imagegen/originals/daily-set.png",
+      "prompt": "Generate a standalone photographic website asset. Square product photograph of coordinated daily skincare set: tall frosted ivory bottle with copper cap, round ivory moisturizer jar copper lid, small serum dropper bottle copper collar. On pale stone, blush silk softly draped behind, soft floral detail. Consistent Sienna Filipina aesthetic: muted rose gold/copper, blush and warm ivory, elegant realistic natural window light, soft shadows, luxurious beauty editorial photography. No website interface, no text overlay, no labels or lettering, no watermark. High resolution.",
+      "referenceImage": null
+    },
+    {
+      "name": "skincare-combo",
+      "url": "/images/sienna/skincare-combo.webp",
+      "original": "output/imagegen/originals/skincare-combo.png",
+      "prompt": "Generate a standalone photographic website asset. Square product photograph of luxury skincare gift combo: large ivory gift box behind, cream jar copper lid, tall frosted ivory serum bottle with rose gold cap, small dropper bottle, ivory rice soap, pale pink hibiscus. Carefully arranged on pale travertine with blush silk. Consistent Sienna Filipina aesthetic: muted rose gold/copper, blush and warm ivory, elegant realistic natural window light, soft shadows, luxurious beauty editorial photography. No website interface, no text overlay, no labels or lettering, no watermark. High resolution.",
+      "referenceImage": null
+    },
+    {
+      "name": "facial-serum",
+      "url": "/images/sienna/facial-serum.webp",
+      "original": "output/imagegen/originals/facial-serum.png",
+      "prompt": "Generate one standalone website photograph. Square close product shot of a single elegant frosted ivory serum bottle with copper rose gold dropper collar, pale stone plinth, blush silk fabric, pale hibiscus petal, realistic glass reflections. Sienna Filipina aesthetic matching luxurious skincare boutique: warm ivory, muted rose gold/copper, blush accents, natural window sunlight, subtle shadows, realistic materials, premium elegant minimal composition. No text, no lettering, no interface, no watermark.",
+      "referenceImage": null
+    },
+    {
+      "name": "knit-top",
+      "url": "/images/sienna/knit-top.webp",
+      "original": "output/imagegen/originals/knit-top.png",
+      "prompt": "Generate one standalone website photograph. Square apparel ecommerce photograph of a soft oatmeal cream knit top neatly laid flat on ivory linen, sleeve and neckline clearly visible, delicate shadows, small woven basket edge, no people. Sienna Filipina aesthetic matching luxurious skincare boutique: warm ivory, muted rose gold/copper, blush accents, natural window sunlight, subtle shadows, realistic materials, premium elegant minimal composition. No text, no lettering, no interface, no watermark.",
+      "referenceImage": null
+    },
+    {
+      "name": "white-shirt",
+      "url": "/images/sienna/white-shirt.webp",
+      "original": "output/imagegen/originals/white-shirt.png",
+      "prompt": "Generate one standalone website photograph. Square apparel ecommerce photograph of a classic ivory-white linen button-down shirt hanging on a light wood hanger against a warm cream plaster wall, complete shirt visible, softly draped naturally, no people. Sienna Filipina aesthetic matching luxurious skincare boutique: warm ivory, muted rose gold/copper, blush accents, natural window sunlight, subtle shadows, realistic materials, premium elegant minimal composition. No text, no lettering, no interface, no watermark.",
+      "referenceImage": null
+    },
+    {
+      "name": "brand-story",
+      "url": "/images/sienna/brand-story.webp",
+      "original": "output/imagegen/originals/brand-story.png",
+      "prompt": "Generate one standalone website photograph. Landscape 4:3 editorial still life of folded ivory linen and oatmeal knit clothing on warm pale wood, woven basket behind, ivory cream jar copper rose gold lid on lower right, softly blurred green plant, warm sunlight. Sienna Filipina aesthetic matching luxurious skincare boutique: warm ivory, muted rose gold/copper, blush accents, natural window sunlight, subtle shadows, realistic materials, premium elegant minimal composition. No text, no lettering, no interface, no watermark.",
+      "referenceImage": null
+    },
+    {
+      "name": "journal-skincare",
+      "url": "/images/sienna/journal-skincare.webp",
+      "original": "output/imagegen/originals/journal-skincare.png",
+      "prompt": "Create a landscape 4:3 standalone editorial beauty photograph for Sienna Filipina's skincare blog. Adult Filipina woman with flowing dark brown hair and ivory blouse, softly closed eyes, gently resting one hand on her cheek. Realistic natural skin texture, relaxed expression, warm window sunlight, soft cream interior and blurred green leaves. Luxury warm ivory and blush rose gold color grading matching a premium skincare boutique. No text, no logo, no watermark, no website interface.",
+      "referenceImage": null
+    },
+    {
+      "name": "journal-apparel",
+      "url": "/images/sienna/journal-apparel.webp",
+      "original": "output/imagegen/originals/journal-apparel.png",
+      "prompt": "Generate a standalone website photography asset, NOT a screenshot. Landscape 4:3 editorial photograph of ivory linen shirts and oatmeal/beige knit apparel hanging neatly on light wooden hangers and rail, woven straw tote lower right, sunlit warm plaster wall, attractive folds and fabric details. Consistent Sienna Filipina premium rose gold and blush skincare/apparel aesthetic; realistic high-end editorial photography, warm ivory, soft natural light, delicate shadows. No text, labels, watermark, UI, buttons or logos.",
+      "referenceImage": null
+    },
+    {
+      "name": "combo-banner",
+      "url": "/images/sienna/combo-banner.webp",
+      "original": "output/imagegen/originals/combo-banner.png",
+      "prompt": "Generate a standalone website photography asset, NOT a screenshot. Wide panoramic 3:1 photograph. Left half very soft pale blush silk with clean negative space. Right half elegant skincare gift arrangement: ivory cream jar copper lid, tall frosted ivory bottle copper cap, ivory rice soap bars, pale pink hibiscus, pale travertine surface. Soft blush silk draped behind. Wide crop suitable for promotional website banner. Consistent Sienna Filipina premium rose gold and blush skincare/apparel aesthetic; realistic high-end editorial photography, warm ivory, soft natural light, delicate shadows. No text, labels, watermark, UI, buttons or logos.",
+      "referenceImage": null
+    }
+  ]
+}
