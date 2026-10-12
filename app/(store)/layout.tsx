@@ -13,7 +13,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { default: s.seoTitle || `${s.siteName} — ${s.tagline}`, template: `%s | ${s.siteName}` },
     description: s.seoDescription,
-    openGraph: { siteName: s.siteName, type: "website" },
+    openGraph: {
+      siteName: s.siteName,
+      type: "website",
+      locale: "en_US",
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: `${s.siteName} — ${s.tagline}` }],
+    },
+    twitter: { card: "summary_large_image", images: ["/og-image.jpg"] },
   };
 }
 

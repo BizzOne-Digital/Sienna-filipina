@@ -60,8 +60,8 @@ export function Header({ logo }: { logo: React.ReactNode }) {
         scrolled ? "border-line bg-ivory/95 shadow-[0_6px_24px_-18px_rgba(73,35,23,0.45)] backdrop-blur" : "border-transparent bg-ivory"
       )}
     >
-      <div className="container-site flex h-[76px] items-center justify-between gap-4 lg:h-[92px]">
-        <div className="h-[60px] lg:h-[78px]">{logo}</div>
+      <div className="container-site flex h-[88px] items-center justify-between gap-4 lg:h-[112px]">
+        <div className="h-[74px] lg:h-[98px]">{logo}</div>
 
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex items-center gap-9">

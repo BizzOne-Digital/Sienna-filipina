@@ -14,7 +14,7 @@ export function Logo({ src, className = "", priority = false }: { src?: string; 
         height={130}
         priority={priority}
         className="h-full w-auto object-contain"
-        sizes="180px"
+        sizes="(min-width: 1024px) 260px, 200px"
       />
     </Link>
   );

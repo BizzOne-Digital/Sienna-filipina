@@ -2,6 +2,7 @@ import "server-only";
 import { NextResponse, type NextRequest } from "next/server";
 import { ZodError } from "zod";
 import { getAdmin, type SessionAdmin } from "@/lib/auth/session";
+import { getSiteUrl } from "@/lib/site-url";
 
 export function jsonError(status: number, error: string, extra?: Record<string, unknown>) {
   return NextResponse.json({ success: false, error, ...extra }, { status });
@@ -17,7 +18,7 @@ export function isSameOrigin(req: NextRequest | Request) {
   const host = req.headers.get("x-forwarded-host") || req.headers.get("host");
   const proto = req.headers.get("x-forwarded-proto") || new URL(req.url).protocol.replace(":", "");
   if (host) allowed.add(`${proto}://${host}`);
-  if (process.env.NEXT_PUBLIC_SITE_URL) allowed.add(process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, ""));
+  allowed.add(getSiteUrl());
   if (origin) return allowed.has(origin);
   return req.headers.get("sec-fetch-site") === "same-origin";
 }

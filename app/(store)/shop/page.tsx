@@ -68,7 +68,16 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
 
         <p className="mt-6 text-sm text-cocoa" aria-live="polite">
           {result.total} {result.total === 1 ? "product" : "products"}
+          {active ? ` in ${active.name}` : ""}
           {sp.q ? ` matching “${sp.q}”` : ""}
+          {(active || sp.q) && (
+            <>
+              {" · "}
+              <Link href="/shop" className="font-medium text-copper underline underline-offset-4 hover:text-copper-dark">
+                View all products
+              </Link>
+            </>
+          )}
         </p>
 
         {result.items.length ? (

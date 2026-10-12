@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { getSitemapEntries } from "@/lib/content/queries";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-dynamic";
 
 const STATIC = ["", "/shop", "/pricing", "/services", "/about-us", "/our-team", "/testimonials", "/blogs", "/contact"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
+  const base = getSiteUrl();
   const entries: MetadataRoute.Sitemap = STATIC.map((p) => ({ url: `${base}${p}`, changeFrequency: "weekly", priority: p === "" ? 1 : 0.7 }));
   try {
     const { products, blogs } = await getSitemapEntries();

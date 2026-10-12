@@ -41,7 +41,7 @@ export function Footer({ settings }: { settings: SettingsDTO }) {
       <FloralAccent className="pointer-events-none absolute -right-2 bottom-2 hidden h-44 w-32 -scale-x-100 text-blush lg:block" />
       <div className="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.3fr] lg:gap-8">
         <div className="flex flex-col items-start">
-          <div className="h-[110px]">
+          <div className="h-[130px]">
             <Logo src={settings.logo} />
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-cocoa">

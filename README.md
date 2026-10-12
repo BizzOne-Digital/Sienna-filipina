@@ -33,7 +33,7 @@ npm run build && npm start
 |---|---|---|
 | `MONGODB_URI` | Yes | MongoDB connection string, including the database name. |
 | `SESSION_SECRET` | Yes | Random string, 32+ characters. Used to hash session and order-access tokens. Generate one with `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"` |
-| `NEXT_PUBLIC_SITE_URL` | Yes | Public URL with no trailing slash, e.g. `https://siennafilipina.com`. Used for the sitemap, metadata and the Origin/CSRF check. |
+| `NEXT_PUBLIC_SITE_URL` | Only for a custom domain | Public URL with no trailing slash, e.g. `https://siennafilipina.com`. On Vercel it can be left unset: the production `*.vercel.app` domain is detected automatically (a `localhost` value is ignored there). Set it once a custom domain is connected so share previews and the sitemap use that domain. |
 | `ADMIN_EMAIL` / `ADMIN_PASSWORD` / `ADMIN_NAME` | Only for `create-admin` | Initial admin account. Remove the password once the account exists. |
 | `NEXT_PUBLIC_UNOPTIMIZED_UPLOADS` | No | Set to `true` only if your host cannot optimize images served from `/api/uploads` (see section 6). |
 
@@ -87,7 +87,7 @@ It creates:
 ## 5. Deploy to Vercel
 
 1. Push the project to a Git repository and import it into Vercel.
-2. Add `MONGODB_URI`, `SESSION_SECRET` and `NEXT_PUBLIC_SITE_URL` under **Project → Settings → Environment Variables** (Production and Preview).
+2. Add `MONGODB_URI` and `SESSION_SECRET` (plus `NEXT_PUBLIC_SITE_URL` if you use a custom domain) under **Project → Settings → Environment Variables** (Production and Preview).
 3. Deploy. The build does not need database access.
 4. From your machine, run `create-admin` (and `seed` if wanted) with `MONGODB_URI` pointing at the production database.
 5. Sign in at `https://your-domain/admin/login`.
