@@ -6,15 +6,16 @@ import { DEFAULT_LOGO } from "@/lib/format";
 export function Logo({ src, className = "", priority = false }: { src?: string; className?: string; priority?: boolean }) {
   const logo = src && src.startsWith("/api/uploads/") ? src : DEFAULT_LOGO;
   return (
-    <Link href="/" aria-label="Sienna Filipina — home" className={`inline-block shrink-0 ${className}`}>
+    // The link fills its sized parent so the image's h-full resolves to a real height.
+    <Link href="/" aria-label="Sienna Filipina — home" className={`block h-full shrink-0 ${className}`}>
       <Image
         src={logo}
         alt="Sienna Filipina — Skincare & Apparel"
-        width={175}
-        height={130}
+        width={700}
+        height={519}
         priority={priority}
         className="h-full w-auto object-contain"
-        sizes="(min-width: 1024px) 260px, 200px"
+        sizes="(min-width: 1024px) 180px, 140px"
       />
     </Link>
   );

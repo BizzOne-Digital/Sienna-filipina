@@ -25,5 +25,5 @@ export function cn(...classes: (string | false | null | undefined)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const DEFAULT_LOGO = "/brand/logo.png";
+export const DEFAULT_LOGO = "/brand/logo-transparent.png";
 export const PLACEHOLDER_IMAGE = "/placeholder.svg";

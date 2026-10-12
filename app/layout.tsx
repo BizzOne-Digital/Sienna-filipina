@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: { default: "Sienna Filipina — Skincare & Apparel", template: "%s | Sienna Filipina" },
   description: "Skincare essentials and everyday apparel from Sienna Filipina.",
-  icons: { icon: "/brand/logo.png" },
+  icons: { icon: "/brand/logo-transparent.png" },
 };
 
 export const viewport: Viewport = { themeColor: "#FBF5EE", width: "device-width", initialScale: 1 };

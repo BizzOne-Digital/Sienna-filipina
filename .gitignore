@@ -10,3 +10,6 @@ next-env.d.ts
 
 .next-verify/
 output/imagegen/browser-preview/
+
+# Local image-generation working files
+output/

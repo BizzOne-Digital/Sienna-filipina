@@ -46,7 +46,7 @@ export function AdminShell({ adminName, children }: { adminName: string; childre
   const nav = (
     <nav aria-label="Admin" className="flex h-full flex-col">
       <div className="flex h-20 items-center justify-center border-b border-line">
-        <Image src="/brand/logo.png" alt="Sienna Filipina" width={175} height={130} className="h-16 w-auto" />
+        <Image src="/brand/logo-transparent.png" alt="Sienna Filipina" width={175} height={130} className="h-16 w-auto" />
       </div>
       <ul className="flex-1 space-y-0.5 overflow-y-auto p-3">
         {NAV.map(({ href, label, icon: Icon }) => (
