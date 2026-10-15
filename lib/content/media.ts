@@ -1,8 +1,8 @@
-// Client-supplied product posters and Reels, served from public/media.
+// Client-supplied product posters, served from public/media/gallery.
+// The Reels videos are for social media only and are kept out of the site (output/client-media).
 // Posters are shown in the gallery only; they are not shop products.
 
 export type Poster = { src: string; name: string; width: number; height: number };
-export type Reel = { src: string; poster: string; label: string };
 
 const g = (slug: string, name: string, width: number, height: number): Poster => ({
   src: `/media/gallery/${slug}.webp`,
@@ -35,19 +35,4 @@ export const POSTERS: Poster[] = [
   g("minako-tomato-soap", "Minako Tomato Extra Soap", 900, 900),
   g("alada-soap", "Alada Soap", 900, 615),
   g("extra-pure-gluta-soap", "Extra Pure Gluta White Soap", 900, 604),
-];
-
-const r = (file: string, posterSlug: string, label: string): Reel => ({
-  src: `/media/reels/${file}.mp4`,
-  poster: `/media/gallery/${posterSlug}.webp`,
-  label,
-});
-
-export const REELS: Reel[] = [
-  r("reel-1-c9-capsule", "c9-capsule", "C9"),
-  r("reel-3-cc-body-sunscreen", "cc-body-sunscreen-spf50", "CC Body Sunscreen"),
-  r("reel-5-arbutin-3c3-lotion", "arbutin-3c3-extra-lotion", "Arbutin 3C3 Extra"),
-  r("reel-2-c9-cocoa", "chong-du-cocoa-shake", "C9 Chong Du Cocoa"),
-  r("reel-4-rice-milk-soap", "extra-pure-gluta-soap", "Rice Milk Soap"),
-  r("reel-6-body-lotion", "gluta-20x-body-lotion", "Body Lotion"),
 ];

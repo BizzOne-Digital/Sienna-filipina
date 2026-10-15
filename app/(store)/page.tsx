@@ -3,8 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PosterGallery } from "@/components/storefront/PosterGallery";
 import { ProductCard } from "@/components/storefront/ProductCard";
-import { ReelsStrip } from "@/components/storefront/ReelsStrip";
-import { POSTERS, REELS } from "@/lib/content/media";
+import { POSTERS } from "@/lib/content/media";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { getBlogs, getFeaturedProducts, getPage } from "@/lib/content/queries";
 
@@ -120,17 +119,6 @@ export default async function HomePage() {
           <Link href="/shop" className="btn btn-outline">
             View all products <Arrow />
           </Link>
-        </div>
-      </section>
-
-      {/* E2. Reels */}
-      <section className="bg-blush-soft/50">
-        <div className="container-site py-16 sm:py-20">
-          <div className="mb-8 text-center">
-            <p className="eyebrow">As Seen on Reels</p>
-            <h2 className="mt-3 text-[2.5rem] sm:text-[3.2rem]">Our favourites, in motion.</h2>
-          </div>
-          <ReelsStrip reels={REELS} />
         </div>
       </section>
 
