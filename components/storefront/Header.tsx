@@ -14,6 +14,7 @@ const NAV = [
   { href: "/contact", label: "Contact" },
 ];
 const MORE = [
+  { href: "/gallery", label: "Gallery" },
   { href: "/services", label: "Services" },
   { href: "/pricing", label: "Pricing" },
   { href: "/blogs", label: "Journal" },

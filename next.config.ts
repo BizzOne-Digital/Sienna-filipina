@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       { pathname: "/api/uploads/**" },
       { pathname: "/brand/**" },
       { pathname: "/images/sienna/**" },
+      { pathname: "/media/gallery/**" },
       { pathname: "/placeholder.svg" },
     ],
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],

@@ -12,6 +12,7 @@ const QUICK = [
   { href: "/our-team", label: "Our Team" },
 ];
 const MORE = [
+  { href: "/gallery", label: "Gallery" },
   { href: "/pricing", label: "Pricing" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blogs", label: "Blogs" },
