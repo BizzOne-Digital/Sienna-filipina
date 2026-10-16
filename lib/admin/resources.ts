@@ -63,6 +63,13 @@ const ProductInput = z.object({
   seoTitle: text(120),
   seoDescription: text(300),
   isDemo: z.boolean().default(false),
+}).superRefine((p, ctx) => {
+  // A published product must never be sold for $0 (e.g. a draft imported without a price).
+  if (!p.published) return;
+  const priced = p.variants.length ? p.variants.every((v) => (v.priceCents ?? p.priceCents) > 0) : p.priceCents > 0;
+  if (!priced) {
+    ctx.addIssue({ code: "custom", path: ["priceCents"], message: "Set a price above $0 before publishing" });
+  }
 });
 
 const CategoryInput = z.object({
