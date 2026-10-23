@@ -23,12 +23,22 @@ export async function generateMetadata({ searchParams }: { searchParams: SP }): 
 export default async function ShopPage({ searchParams }: { searchParams: SP }) {
   const sp = await searchParams;
   const page = Math.max(1, Number(sp.page) || 1);
-  const [{ data: c }, categories, result] = await Promise.all([
+  const [{ data: c }, categories, result, allResult] = await Promise.all([
     getPage("shop"),
     getCategories(),
     queryProducts({ category: sp.category, q: sp.q?.slice(0, 60), sort: sp.sort, page, pageSize: 9 }),
+    queryProducts({ pageSize: 500 }), // whole published catalogue (small): category counts + grouped view
   ]);
+  const all = allResult.items;
   const active = categories.find((x) => x.slug === sp.category);
+  // Only show categories that currently have published products (plus the one being viewed).
+  const visibleCats = categories.filter((c) => c.slug === sp.category || all.some((p) => p.category?._id === c._id));
+  // The default "All" view groups products by category so each type has its own place.
+  const grouped = !sp.category && !sp.q && (!sp.sort || sp.sort === "featured");
+  const groups = visibleCats
+    .map((c) => ({ cat: c, items: all.filter((p) => p.category?._id === c._id) }))
+    .filter((g) => g.items.length);
+  const uncategorised = all.filter((p) => !p.category);
 
   const href = (patch: Record<string, string | undefined>) => {
     const p = new URLSearchParams();
@@ -42,7 +52,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
       <PageHeader eyebrow={c.eyebrow} heading={active ? active.name : c.heading} intro={active?.description || c.intro} />
       <section className="container-site pb-20">
         <nav aria-label="Categories" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-2">
-          {[{ slug: "", name: "All" }, ...categories].map((cat) => {
+          {[{ slug: "", name: "All" }, ...visibleCats].map((cat) => {
             const on = (sp.category ?? "") === cat.slug;
             return (
               <Link
@@ -67,7 +77,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
         </div>
 
         <p className="mt-6 text-sm text-cocoa" aria-live="polite">
-          {result.total} {result.total === 1 ? "product" : "products"}
+          {grouped ? all.length : result.total} {(grouped ? all.length : result.total) === 1 ? "product" : "products"}
           {active ? ` in ${active.name}` : ""}
           {sp.q ? ` matching “${sp.q}”` : ""}
           {(active || sp.q) && (
@@ -80,7 +90,29 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
           )}
         </p>
 
-        {result.items.length ? (
+        {grouped && all.length ? (
+          <div className="mt-8 space-y-14">
+            {[...groups, ...(uncategorised.length ? [{ cat: null, items: uncategorised }] : [])].map((grp, gi) => (
+              <section key={grp.cat?._id ?? "other"} aria-labelledby={`grp-${grp.cat?.slug ?? "other"}`}>
+                <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-line pb-3">
+                  <h2 id={`grp-${grp.cat?.slug ?? "other"}`} className="text-[2rem]">
+                    {grp.cat?.name ?? "More products"}
+                  </h2>
+                  {grp.cat && (
+                    <Link href={`/shop?category=${grp.cat.slug}`} className="inline-flex min-h-11 items-center text-sm text-copper hover:text-copper-dark">
+                      View all {grp.items.length} →
+                    </Link>
+                  )}
+                </div>
+                <div className="grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3">
+                  {grp.items.map((p, i) => (
+                    <ProductCard key={p._id} product={p} priority={gi === 0 && i < 3} sizes="(min-width: 1024px) 30vw, (min-width: 480px) 48vw, 100vw" />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : result.items.length ? (
           <div className="mt-6 grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3">
             {result.items.map((p, i) => (
               <ProductCard key={p._id} product={p} priority={i < 3} sizes="(min-width: 1024px) 30vw, (min-width: 480px) 48vw, 100vw" />
@@ -100,7 +132,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
           </div>
         )}
 
-        {result.pages > 1 && (
+        {!grouped && result.pages > 1 && (
           <nav aria-label="Pagination" className="mt-12 flex items-center justify-center gap-2">
             {result.page > 1 ? (
               <Link href={href({ page: String(result.page - 1) })} className="btn btn-ghost btn-sm" aria-label="Previous page">
