@@ -46,9 +46,9 @@ const ENTRIES: Entry[] = [
   { slug: "minako-vitamin-e-99x-lotion", name: "Minako Vitamin E 99X Lotion", category: "body-whitening-lotion", short: "Vitamin E body lotion by Minako." },
   { slug: "arbutin-3c3-extra-lotion", category: "body-whitening-lotion" },
   { slug: "alpha-arbutin-collagen-lotion", category: "body-whitening-lotion" },
-  { slug: "the-elf-nano-white-booster", category: "body-whitening-lotion" },
   // Body Booster
   { slug: "jennie-moon-40x-body-booster", from: "40x-pro-derm-plus-body-booster", name: "Jennie Moon 40X Body Booster (Red)", category: "body-booster" },
+  { slug: "the-elf-nano-white-booster", category: "body-booster" },
   { slug: "jennie-moon-50x-body-booster", name: "Jennie Moon 50X Body Booster (Black)", category: "body-booster", short: "Body booster cream by Jennie Moon." },
   // Sunscreen Lotion
   { slug: "cc-walnut-sunscreen-green", from: "cc-body-sunscreen-spf50", name: "CC Walnut Body Sunscreen SPF 50 (Green)", category: "sunscreen-lotion" },

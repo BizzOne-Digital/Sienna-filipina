@@ -34,13 +34,15 @@ export const POSTER_GROUPS: PosterGroup[] = [
       g("minako-tomato-lotion", "Minako Tomato Lotion", 900, 1332),
       g("arbutin-3c3-extra-lotion", "Arbutin 3C3 Extra Lotion", 900, 1329),
       g("alpha-arbutin-collagen-lotion", "Alpha Arbutin Collagen Lotion", 900, 1345),
-      g("the-elf-nano-white-booster", "The Elf Nano White Booster", 900, 1227),
     ],
   },
   {
     title: "Body Booster",
     category: "body-booster",
-    posters: [g("40x-pro-derm-plus-body-booster", "Jennie Moon 40X Body Booster (Red)", 900, 1358)],
+    posters: [
+      g("40x-pro-derm-plus-body-booster", "Jennie Moon 40X Body Booster (Red)", 900, 1358),
+      g("the-elf-nano-white-booster", "The Elf Nano White Booster", 900, 1227),
+    ],
   },
   {
     title: "Sunscreen Lotion",
