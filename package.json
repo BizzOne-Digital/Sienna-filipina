@@ -11,7 +11,8 @@
     "create-admin": "tsx scripts/create-admin.ts",
     "images:apply": "tsx scripts/apply-generated-images.ts",
     "import-products": "tsx scripts/import-products.ts",
-    "organize-products": "tsx scripts/organize-products.ts"
+    "organize-products": "tsx scripts/organize-products.ts",
+    "attach-photos": "tsx scripts/attach-photos.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
