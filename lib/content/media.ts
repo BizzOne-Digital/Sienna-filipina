@@ -14,6 +14,16 @@ const g = (slug: string, name: string, width: number, height: number): Poster =>
 
 export const POSTER_GROUPS: PosterGroup[] = [
   {
+    title: "Apparel",
+    category: "apparel",
+    posters: [
+      g("apparel-nike-tshirt-black", "Nike Original T-Shirt", 900, 1130),
+      g("apparel-adidas-tshirt-navy", "Adidas Original T-Shirt", 900, 1036),
+      g("apparel-adidas-sweatshirt-blue", "Adidas Original Sweatshirt (Climate Control)", 900, 1060),
+      g("apparel-thailand-set-tan-black", "Thailand Finds T-Shirt & Shorts Set", 900, 973),
+    ],
+  },
+  {
     title: "Body Serum",
     category: "body-serum",
     posters: [
@@ -70,17 +80,17 @@ export const POSTER_GROUPS: PosterGroup[] = [
     posters: [
       g("c9-coffee-thin-gold", "C9 Coffee", 900, 1206),
       g("chong-du-cocoa-shake", "Cocoa Shake", 900, 1122),
-      g("c9-capsule", "C9 Capsule", 900, 1200),
       g("c9-coffee-and-capsule", "C9 Coffee + C9 Capsule Combo", 900, 1081),
     ],
   },
   {
-    title: "Collagen Drink",
+    title: "Collagen & Wellness",
     category: "collagen-drink",
     posters: [
       g("gluta-collagen-dtx", "DTX Gluta Collagen", 900, 1361),
       g("minako-apple-cider-vinegar", "Minako Apple Cider Vinegar", 900, 1403),
       g("merry-collagen-peptide-plus", "Merry Collagen Peptide Plus", 900, 1398),
+      g("c9-capsule", "C9 Capsule", 900, 1200),
     ],
   },
 ];

@@ -19,7 +19,7 @@ const CATEGORIES = [
   { slug: "sunscreen-lotion", name: "Sunscreen Lotion", description: "Body sunscreen lotions." },
   { slug: "whitening-soap", name: "Whitening Soap", description: "Bar soaps for your daily routine." },
   { slug: "coffee", name: "Coffee & Cocoa", description: "Coffee, cocoa and C9 favourites." },
-  { slug: "collagen-drink", name: "Collagen Drink", description: "Collagen and wellness drinks." },
+  { slug: "collagen-drink", name: "Collagen & Wellness", description: "Collagen drinks, capsules and wellness favourites." },
 ];
 
 type Entry = {
@@ -61,11 +61,11 @@ const ENTRIES: Entry[] = [
   // Coffee & Cocoa
   { slug: "c9-coffee-thin-gold", name: "C9 Coffee", category: "coffee" },
   { slug: "chong-du-cocoa-shake", name: "Cocoa Shake", category: "coffee" },
-  { slug: "c9-capsule", category: "coffee" },
-  // Collagen Drink
+  // Collagen & Wellness
   { slug: "gluta-collagen-dtx", name: "DTX Gluta Collagen", category: "collagen-drink" },
   { slug: "minako-apple-cider-vinegar", name: "Minako Apple Cider Vinegar", category: "collagen-drink", short: "Apple cider vinegar drink by Minako." },
   { slug: "merry-collagen-peptide-plus", category: "collagen-drink" },
+  { slug: "c9-capsule", category: "collagen-drink" },
   // Combos
   { slug: "c9-coffee-capsule-combo", category: "combos" },
 ];

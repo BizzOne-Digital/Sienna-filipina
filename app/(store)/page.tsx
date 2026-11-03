@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PosterGallery } from "@/components/storefront/PosterGallery";
-import { ProductCard } from "@/components/storefront/ProductCard";
-import { POSTERS } from "@/lib/content/media";
+import Image from "next/image";
+import { POSTER_GROUPS } from "@/lib/content/media";
 import { SafeImage } from "@/components/ui/SafeImage";
-import { getBlogs, getFeaturedProducts, getPage } from "@/lib/content/queries";
+import { getBlogs, getPage, queryProducts } from "@/lib/content/queries";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seoTitle, seoDescription } = await getPage("home");
@@ -35,7 +34,17 @@ function HeroHeading({ text }: { text: string }) {
 }
 
 export default async function HomePage() {
-  const [{ data: c }, featured, posts] = await Promise.all([getPage("home"), getFeaturedProducts(3), getBlogs({ limit: 2 })]);
+  const [{ data: c }, catalogue, posts] = await Promise.all([getPage("home"), queryProducts({ pageSize: 500 }), getBlogs({ limit: 2 })]);
+  // Product groups: link to the shop once a group has published products, otherwise to its gallery section.
+  const collection = POSTER_GROUPS.map((grp) => {
+    const published = catalogue.items.filter((p) => p.category?.slug === grp.category).length;
+    return {
+      ...grp,
+      cover: grp.posters[0],
+      count: published || grp.posters.length,
+      href: published ? `/shop?category=${grp.category}` : `/gallery#${grp.category}`,
+    };
+  });
 
   return (
     <>
@@ -99,41 +108,44 @@ export default async function HomePage() {
         ))}
       </section>
 
-      {/* E. Featured products */}
+      {/* E. Our collection — the client's product groups */}
       <section className="container-site py-16 sm:py-20">
         <div className="text-center">
           <p className="eyebrow">{c.collectionEyebrow}</p>
           <h2 className="mt-3 text-[2.5rem] sm:text-[3.2rem]">{c.collectionHeading}</h2>
           <p className="mt-2 text-cocoa">{c.collectionSubheading}</p>
         </div>
-        {featured.length ? (
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((p) => (
-              <ProductCard key={p._id} product={p} />
-            ))}
-          </div>
-        ) : (
-          <p className="mt-10 text-center text-sm text-cocoa">New products are on the way.</p>
-        )}
+        <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+          {collection.map((grp) => (
+            <li key={grp.category}>
+              <Link href={grp.href} className="group block overflow-hidden border border-line bg-[#fffdfa] transition-shadow duration-300 hover:shadow-[0_18px_40px_-28px_rgba(73,35,23,0.55)]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-cream">
+                  <Image
+                    src={grp.cover.src}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 23vw, 48vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 px-4 py-3">
+                  <div className="min-w-0">
+                    <h3 className="font-sans text-[0.9rem] font-medium leading-snug tracking-normal text-espresso sm:text-[0.95rem]">{grp.title}</h3>
+                    <p className="text-xs text-cocoa">
+                      {grp.count} {grp.count === 1 ? "product" : "products"}
+                    </p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-copper transition-transform group-hover:translate-x-1" aria-hidden />
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
         <div className="mt-10 text-center">
-          <Link href="/shop" className="btn btn-outline">
+          <Link href="/gallery" className="btn btn-outline">
             View all products <Arrow />
           </Link>
         </div>
-      </section>
-
-      {/* E3. Product gallery preview */}
-      <section className="container-site py-16 sm:py-20">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow">Product Gallery</p>
-            <h2 className="mt-3 text-[2.2rem] sm:text-[2.7rem]">What we carry.</h2>
-          </div>
-          <Link href="/gallery" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-copper hover:text-copper-dark">
-            View full gallery <ArrowRight className="h-4 w-4" aria-hidden />
-          </Link>
-        </div>
-        <PosterGallery posters={POSTERS.slice(0, 8)} />
       </section>
 
       {/* F. Combo promotion */}

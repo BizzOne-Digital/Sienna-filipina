@@ -12,14 +12,14 @@ export function ProductCard({ product, sizes, priority }: { product: ProductDTO;
   const soldOut = product.variants.length ? product.variants.every((v) => v.stock <= 0) : product.stock <= 0;
   return (
     <article className="group relative flex flex-col border border-line bg-[#fffdfa] transition-shadow duration-300 hover:shadow-[0_18px_40px_-28px_rgba(73,35,23,0.55)]">
-      <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+      <div className="relative aspect-square overflow-hidden bg-[#fffdfa]">
         <SafeImage
           src={product.images[0]}
           alt={product.name}
           fill
           priority={priority}
           sizes={sizes ?? "(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"}
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          className="object-contain transition-transform duration-700 group-hover:scale-[1.04]"
         />
         {product.badge && (
           <span className="absolute right-3 top-3 rounded-full bg-copper px-3 py-1 text-xs font-medium text-white">

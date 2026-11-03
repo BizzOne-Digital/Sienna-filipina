@@ -12,7 +12,8 @@
     "images:apply": "tsx scripts/apply-generated-images.ts",
     "import-products": "tsx scripts/import-products.ts",
     "organize-products": "tsx scripts/organize-products.ts",
-    "attach-photos": "tsx scripts/attach-photos.ts"
+    "attach-photos": "tsx scripts/attach-photos.ts",
+    "add-apparel": "tsx scripts/add-apparel.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
