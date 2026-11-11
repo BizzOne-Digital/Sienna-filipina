@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AlertTriangle, Mail, Package, Receipt, Newspaper, MessageSquareQuote, Images } from "lucide-react";
+import { RefreshSiteButton } from "@/components/admin/RefreshSiteButton";
 import { AdminPageTitle } from "@/components/admin/Sidebar";
 import { connectDB } from "@/lib/db/connect";
 import { formatDate, formatMoney } from "@/lib/format";
@@ -38,7 +39,7 @@ export default async function DashboardPage() {
 
   return (
     <>
-      <AdminPageTitle title="Dashboard" description="What needs attention today." />
+      <AdminPageTitle title="Dashboard" description="What needs attention today." actions={<RefreshSiteButton />} />
 
       {demoProducts > 0 && (
         <div className="mb-6 flex gap-3 border border-[#e5c7a8] bg-[#fdf3e7] p-4 text-sm text-[#7a4a1d]">

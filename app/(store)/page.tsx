@@ -70,7 +70,7 @@ export default async function HomePage() {
               </div>
               <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-cocoa sm:text-lg">{c.heroDescription}</p>
               <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-                <Link href="/shop?category=skincare" className="btn btn-primary">
+                <Link href="/shop#grp-body-serum" className="btn btn-primary">
                   {c.heroPrimaryLabel} <Arrow />
                 </Link>
                 <Link href="/shop?category=apparel" className="btn btn-outline bg-ivory/60">
@@ -85,7 +85,7 @@ export default async function HomePage() {
       {/* D. Collection tiles */}
       <section aria-label="Collections" className="container-site grid gap-4 py-4 md:grid-cols-2 md:gap-5 md:py-5">
         {[
-          { title: c.tile1Title, text: c.tile1Text, button: c.tile1Button, image: c.tile1Image, href: "/shop?category=skincare" },
+          { title: c.tile1Title, text: c.tile1Text, button: c.tile1Button, image: c.tile1Image, href: "/shop#grp-body-serum" },
           { title: c.tile2Title, text: c.tile2Text, button: c.tile2Button, image: c.tile2Image, href: "/shop?category=apparel" },
         ].map((t) => (
           <article key={t.title} className="group relative min-h-[300px] overflow-hidden bg-cream sm:min-h-[340px]">

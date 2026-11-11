@@ -13,7 +13,8 @@
     "import-products": "tsx scripts/import-products.ts",
     "organize-products": "tsx scripts/organize-products.ts",
     "attach-photos": "tsx scripts/attach-photos.ts",
-    "add-apparel": "tsx scripts/add-apparel.ts"
+    "add-apparel": "tsx scripts/add-apparel.ts",
+    "update-catalog": "tsx scripts/update-catalog.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

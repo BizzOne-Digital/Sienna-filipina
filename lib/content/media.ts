@@ -44,7 +44,7 @@ export const POSTER_GROUPS: PosterGroup[] = [
       g("minako-gluta-vitamin-b3-lotion", "Minako Tomato Black 10X", 900, 1339),
       g("minako-tomato-lotion", "Minako Tomato Lotion", 900, 1332),
       g("minako-vitamin-e-99x", "Minako Vitamin E 99X Lotion", 900, 895),
-      g("arbutin-3c3-extra-lotion", "Arbutin 3C3 Extra Lotion", 900, 1329),
+      g("arbutin-night-cream-lotion", "Arbutin Night Cream Lotion", 900, 898),
       g("alpha-arbutin-collagen-lotion", "Alpha Arbutin Collagen Lotion", 900, 1345),
     ],
   },
@@ -75,12 +75,19 @@ export const POSTER_GROUPS: PosterGroup[] = [
     ],
   },
   {
+    title: "Body Scrub",
+    category: "body-scrub",
+    posters: [g("minako-tomato-body-scrub", "Minako Tomato Herbal Body Scrub", 900, 1189)],
+  },
+  {
     title: "Coffee & Cocoa",
     category: "coffee",
     posters: [
       g("c9-coffee-thin-gold", "C9 Coffee", 900, 1206),
+      g("minako-body-shape-coffee", "Minako Body Shape Coffee", 900, 1277),
       g("chong-du-cocoa-shake", "Cocoa Shake", 900, 1122),
       g("c9-coffee-and-capsule", "C9 Coffee + C9 Capsule Combo", 900, 1081),
+      g("minako-duo-combo", "Minako Duo Combo: Apple Cider Vinegar + Body Shape Coffee", 900, 709),
     ],
   },
   {
@@ -88,6 +95,8 @@ export const POSTER_GROUPS: PosterGroup[] = [
     category: "collagen-drink",
     posters: [
       g("gluta-collagen-dtx", "DTX Gluta Collagen", 900, 1361),
+      g("minako-collagen-gluta-tomato-glow", "Minako Collagen Mix Gluta Tomato Glow", 900, 1200),
+      g("minako-collagen-tripeptide", "Minako Collagen Tripeptide", 900, 1199),
       g("minako-apple-cider-vinegar", "Minako Apple Cider Vinegar", 900, 1403),
       g("merry-collagen-peptide-plus", "Merry Collagen Peptide Plus", 900, 1398),
       g("c9-capsule", "C9 Capsule", 900, 1200),

@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ServicesPage() {
   const { data: c } = await getPage("services");
   const offerings = [
-    { title: c.skincareTitle, text: c.skincareText, image: c.skincareImage, href: "/shop?category=skincare" },
+    { title: c.skincareTitle, text: c.skincareText, image: c.skincareImage, href: "/shop#grp-body-serum" },
     { title: c.apparelTitle, text: c.apparelText, image: c.apparelImage, href: "/shop?category=apparel" },
     { title: c.comboTitle, text: c.comboText, image: c.comboImage, href: "/shop?category=combos" },
   ];

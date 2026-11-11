@@ -95,7 +95,7 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
             {[...groups, ...(uncategorised.length ? [{ cat: null, items: uncategorised }] : [])].map((grp, gi) => (
               <section key={grp.cat?._id ?? "other"} aria-labelledby={`grp-${grp.cat?.slug ?? "other"}`}>
                 <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-line pb-3">
-                  <h2 id={`grp-${grp.cat?.slug ?? "other"}`} className="text-[2rem]">
+                  <h2 id={`grp-${grp.cat?.slug ?? "other"}`} className="scroll-mt-36 text-[2rem]">
                     {grp.cat?.name ?? "More products"}
                   </h2>
                   {grp.cat && (
