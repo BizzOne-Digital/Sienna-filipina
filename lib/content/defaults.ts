@@ -15,6 +15,8 @@ export const DEFAULT_SETTINGS: SettingsDTO = {
   instagramUrl: "",
   comboOfferText: "Free rice soap with every combo purchase.",
   shippingNote: "",
+  zelleName: "Analyn Penrod",
+  zellePhone: "817-480-4576",
   seoTitle: "Sienna Filipina — Skincare & Apparel",
   seoDescription:
     "Shop skincare essentials and everyday apparel from Sienna Filipina. Classy, modern and minimalist — with a free rice soap on combo purchases.",

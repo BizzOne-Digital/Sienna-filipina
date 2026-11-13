@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isValidObjectId } from "mongoose";
 import { Clock } from "lucide-react";
 import { hmac, safeEqual } from "@/lib/auth/crypto";
+import { ZellePayment } from "@/components/storefront/ZellePayment";
 import { getSettings } from "@/lib/content/queries";
 import { connectDB } from "@/lib/db/connect";
 import { formatDate, formatMoney } from "@/lib/format";
@@ -36,14 +37,20 @@ export default async function OrderConfirmationPage({ params, searchParams }: Pr
       <p className="eyebrow text-center">Order {order.orderNumber}</p>
       <h1 className="mt-3 text-center text-[2.6rem] sm:text-5xl">Thank you, {order.customer?.name?.split(" ")[0] ?? ""}</h1>
       <p className="mx-auto mt-4 max-w-xl text-center leading-relaxed text-cocoa">
-        Your order has been received. <strong className="text-espresso">No payment has been taken.</strong> We will email{" "}
-        {order.customer?.email} to confirm availability, delivery and payment details.
+        Your order has been received. <strong className="text-espresso">No payment has been taken yet.</strong> Please send
+        your payment by Zelle using the details below. We will email {order.customer?.email} to confirm delivery.
       </p>
 
       <div className="mt-8 flex items-center justify-center gap-2 text-sm">
         <Clock className="h-4 w-4 text-copper" aria-hidden />
         <span>Status: {STATUS_TEXT[order.status] ?? order.status}</span>
       </div>
+
+      {order.paymentStatus === "unpaid" && order.status !== "cancelled" && (
+        <div className="mt-8">
+          <ZellePayment name={settings.zelleName} phone={settings.zellePhone} orderNumber={order.orderNumber} totalCents={order.totalCents} />
+        </div>
+      )}
 
       <div className="mt-10 border border-line bg-[#fffdfa] p-6">
         <div className="flex flex-wrap justify-between gap-2 text-sm text-cocoa">

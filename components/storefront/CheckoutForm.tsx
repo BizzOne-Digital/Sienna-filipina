@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Info, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { formatMoney } from "@/lib/format";
 import { useCart } from "./CartProvider";
 import { useQuote } from "./useQuote";
+import { ZellePayment } from "./ZellePayment";
 
 function Field({ id, label, required, ...rest }: { id: string; label: string; required?: boolean } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
@@ -20,7 +21,7 @@ function Field({ id, label, required, ...rest }: { id: string; label: string; re
   );
 }
 
-export function CheckoutForm({ shippingNote }: { shippingNote: string }) {
+export function CheckoutForm({ shippingNote, zelleName, zellePhone }: { shippingNote: string; zelleName: string; zellePhone: string }) {
   const router = useRouter();
   const { items, ready, clear } = useCart();
   const { quote, loading, error } = useQuote();
@@ -85,14 +86,7 @@ export function CheckoutForm({ shippingNote }: { shippingNote: string }) {
       }}
     >
       <div className="space-y-10">
-        <div className="flex gap-3 border border-line bg-blush-soft/60 p-4 text-sm leading-relaxed text-espresso">
-          <Info className="mt-0.5 h-5 w-5 shrink-0 text-copper" aria-hidden />
-          <p>
-            <strong className="font-semibold">Manual payment order.</strong> No payment is taken on this website. After you
-            place your order we will email you to confirm availability, delivery and how to pay. Your order is only
-            processed once payment is confirmed.
-          </p>
-        </div>
+        <ZellePayment name={zelleName} phone={zellePhone} />
 
         <fieldset className="space-y-5">
           <legend className="mb-2 font-serif text-[1.8rem]">Contact</legend>
@@ -152,8 +146,8 @@ export function CheckoutForm({ shippingNote }: { shippingNote: string }) {
             <dd className="text-cocoa">Confirmed by email</dd>
           </div>
           <div className="flex justify-between border-t border-line pt-3 text-base font-medium">
-            <dt>Total due now</dt>
-            <dd>$0 — pay after confirmation</dd>
+            <dt>Total (pay by Zelle)</dt>
+            <dd className="tabular-nums">{formatMoney(quote?.subtotalCents ?? 0)}</dd>
           </div>
         </dl>
         {shippingNote && <p className="mt-3 text-xs leading-relaxed text-cocoa">{shippingNote}</p>}
@@ -170,9 +164,9 @@ export function CheckoutForm({ shippingNote }: { shippingNote: string }) {
         )}
         <button type="submit" className="btn btn-primary mt-6 w-full" disabled={!canSubmit}>
           {submitting && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
-          {submitting ? "Placing order…" : "Place order (pay later)"}
+          {submitting ? "Placing order…" : "Place order"}
         </button>
-        <p className="mt-3 text-center text-xs text-cocoa">Subtotal of {formatMoney(quote?.subtotalCents ?? 0)} is payable once we confirm your order.</p>
+        <p className="mt-3 text-center text-xs text-cocoa">Next, you will see your order number and the Zelle details to send {formatMoney(quote?.subtotalCents ?? 0)}.</p>
       </aside>
     </form>
   );

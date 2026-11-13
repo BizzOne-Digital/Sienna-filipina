@@ -108,6 +108,12 @@ export function Footer({ settings }: { settings: SettingsDTO }) {
               </li>
             )}
           </ul>
+          {settings.zellePhone && (
+            <p className="mt-4 text-sm text-cocoa">
+              <span className="font-medium text-espresso">Payment:</span> Zelle only — {settings.zellePhone}
+              {settings.zelleName ? ` (${settings.zelleName})` : ""}
+            </p>
+          )}
         </div>
       </div>
       <div className="border-t border-line">

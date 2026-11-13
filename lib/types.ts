@@ -60,6 +60,9 @@ export type SettingsDTO = {
   instagramUrl: string;
   comboOfferText: string;
   shippingNote: string;
+  /** Zelle is the only accepted payment method; shown at checkout and on the order page. */
+  zelleName: string;
+  zellePhone: string;
   seoTitle: string;
   seoDescription: string;
 };

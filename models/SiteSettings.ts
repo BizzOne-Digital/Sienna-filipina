@@ -19,6 +19,8 @@ const SiteSettingsSchema = new Schema(
     instagramUrl: { type: String, default: "" },
     comboOfferText: { type: String, default: "" },
     shippingNote: { type: String, default: "" },
+    zelleName: { type: String, default: "" },
+    zellePhone: { type: String, default: "" },
     seoTitle: { type: String, default: "" },
     seoDescription: { type: String, default: "" },
     imageRefs: { type: [String], default: [], index: true },

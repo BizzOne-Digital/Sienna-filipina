@@ -9,7 +9,7 @@ export default async function CheckoutPage() {
   return (
     <section className="container-site py-12 sm:py-16">
       <h1 className="text-[2.6rem] sm:text-5xl">Checkout</h1>
-      <CheckoutForm shippingNote={settings.shippingNote} />
+      <CheckoutForm shippingNote={settings.shippingNote} zelleName={settings.zelleName} zellePhone={settings.zellePhone} />
     </section>
   );
 }

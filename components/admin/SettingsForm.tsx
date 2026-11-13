@@ -23,7 +23,7 @@ export function SettingsForm() {
       .then((r) => {
         const keys: (keyof SettingsDTO)[] = [
           "siteName", "tagline", "logo", "announcement", "announcementEnabled", "email", "phone", "showPhone", "businessHours",
-          "facebookUrl", "instagramUrl", "comboOfferText", "shippingNote", "seoTitle", "seoDescription",
+          "facebookUrl", "instagramUrl", "comboOfferText", "shippingNote", "zelleName", "zellePhone", "seoTitle", "seoDescription",
         ];
         const v = Object.fromEntries(keys.map((k) => [k, r.settings[k]])) as SettingsDTO;
         v.businessHours = (v.businessHours ?? []).map((h) => ({ label: h.label, value: h.value }));
@@ -142,6 +142,12 @@ export function SettingsForm() {
           <label htmlFor="s-ship" className="field-label">Checkout delivery note</label>
           <textarea id="s-ship" className="field" rows={2} maxLength={500} value={s.shippingNote} onChange={(e) => set("shippingNote", e.target.value)} />
         </div>
+      </fieldset>
+
+      <fieldset className="grid gap-5 border border-line bg-[#fffdfa] p-5 sm:p-6 md:grid-cols-2">
+        <legend className="px-2 font-serif text-xl">Payment (Zelle)</legend>
+        {text("zelleName", "Zelle name", { maxLength: 80 }, "The name customers will see when sending payment.")}
+        {text("zellePhone", "Zelle phone number", { type: "tel", maxLength: 40 }, "Shown at checkout, on the order page and in the footer.")}
       </fieldset>
 
       <fieldset className="grid gap-5 border border-line bg-[#fffdfa] p-5 sm:p-6">

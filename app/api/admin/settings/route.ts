@@ -35,6 +35,8 @@ const SettingsInput = z.object({
   instagramUrl: optionalUrl(/(^|\.)instagram\.com$/),
   comboOfferText: z.string().trim().max(300),
   shippingNote: z.string().trim().max(500),
+  zelleName: z.string().trim().max(80),
+  zellePhone: z.string().trim().max(40),
   seoTitle: z.string().trim().max(120),
   seoDescription: z.string().trim().max(300),
 });
